@@ -1,0 +1,32 @@
+graph lpc1114 {
+ rankdir=LR;
+    node [shape=record];
+    pc [label="PC"];
+
+mpl2303sa [label="<usb>usb_port|{<p1>1 GND|<p8>8 VO_33}|{<p2>2 TXD|<p7>7 VDD_5}|{<p3>3 VDD325|<p6>6 DM}|{<p4>4 RXD|<p5>5 DP}|MPL2303SA(USB module)"];
+
+    lpc1114 [label="{<p1> 1:PIO0_8|<p28> 28:PIO0_7}|{<p2> 2:PIO0_9|<p27> 27:PIO0_4}|{<p3> 3:SWCLK|<p26> 26:PIO0_3}|{<p4> 4:PIO0_11|<p25> 25:PIO0_2}|{<p5> 5:PIO0_5|<p24> 24:PIO0_1}|{<p6> 6:PIO0_6|<p23> 23:RESET}|{<p7> 7:V_DDA|<p22> 22:V_SS}|{<p8> 8:V_SSA|<p21> 21:V_DD}|{<p9> 9:PIO1_0|<p20> 20:XTALIN}|{<p10> 10:PIO1_1|<p19> 19:XTALOUT}|{<p11> 11:PIO1_2|<p18> 18:PIO1_9}|{<p12> 12:SWDIO|<p17> 17:PIO1_8}|{<p13> 13:PIO1_4|<p16> 16:PIO1_7}|{<p14> 14:PIO1_5&#92;nRXD|<p15> 15:PIO1_6&#92;nTXD}|LPC1114"];
+led1 [label="{<plus>+|<minus>-}|led1"];
+reset [label="{<p1>1|<p2>2}|{<p1>3|<p2>4}|reset switch"];
+isp [label="{<p1>1|<p2>2}|{<p1>3|<p2>4}|isp switch"];
+
+    GND [label="GND", style=filled];
+    VCC [label="V(+3.3V)", style=filled];
+
+    pc -- mpl2303sa:usb;
+    lpc1114:p7 -- GND;
+    mpl2303sa:p1 -- GND;
+    mpl2303sa:p8 -- VCC;
+    lpc1114:p8 -- VCC;
+    mpl2303sa:p2 --lpc1114:p15;
+    mpl2303sa:p4 --lpc1114:p16;
+    lpc1114:p28 -- led1:plus;
+    led1:minus -- GND;
+
+    reset:p2 -- lpc1114:p23;
+    reset:p1 -- GND;
+
+    isp:p2 -- lpc1114:p24;
+    isp:p1 -- GND;
+}
+
