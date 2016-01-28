@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+   <meta charset="utf-8" />
+   <meta name="Author" content="Takashi Masuyama" />
+   <meta name="viewport" content="width=device-width" />
+   <script src="lib/go-debug.js"></script>
+   <script src="js/main.js"></script>
+   <title>[Title]</title>
+</head>
+<body onload="init()">
+   <div id="myDiagram" style="background-color: whitesmoke; border: solid 1px black; width: 100%; height: 600px"></div>
+
+   <textarea id="mySavedModel" style="width:100%;height:300px">{ "class": "go.GraphLinksModel",
+  "nodeCategoryProperty": "type",
+  "linkFromPortIdProperty": "frompid",
+  "linkToPortIdProperty": "topid",
+  "nodeDataArray": [
+{"key":1, "type":"Chip", "name":"LPC1114"},
+{"key":2, "type":"Switch", "name":"reset"},
+     {"key":3, "type":"Switch", "name":"button"},
+     {"key": 4, "type": "Line", "name": "GND" },
+     {"key": 5, "type": "Line", "name": "VCC" }
+  ],
+     "linkDataArray": [
+     {"from": 1, "frompid": "23", "to": 2, "topid": "2"},
+     {"from": 2, "frompid": "1", "to": 4, "topid": "1"}
+     
+  ]}
+   </textarea>
+   <!-- {"from":1, "frompid":"OUT", "to":11, "topid":"L"}, -->
+</body></html>
