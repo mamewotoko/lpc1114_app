@@ -8,7 +8,10 @@ lpc1114_app
 
 TODO
 ----
-サウンド
+- シリアル通信
+- サウンド(スピーカ)
+- 赤外線
+- USBキーボード
 
 増山隆 < mamewotoko@gmail.com >
 

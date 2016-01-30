@@ -46,11 +46,21 @@ function init() {
 	return panel;
     }
 
-    function makeTemplate(typename, background, inports, outports) {
-	var height = Math.max(inports.length, outports.length)*20;
+    function makeTemplate(typename, background, inports, outports, w, h) {
+	var width = 100;
+	if(typeof w != "undefined"){
+	    width = w;
+	}
+	var height;
+	if(typeof h != "undefined"){
+	    height = h;
+	}
+	else {
+	    height = Math.max(inports.length, outports.length)*20;
+	}
 	var node = $(go.Node, "Spot",
 		     $(go.Panel, "Auto",
-		       { width: 100, height: height },
+		       { width: width, height: height },
 		       $(go.Shape, "Rectangle",
 			 {
 			     fill: background, stroke: null, strokeWidth: 0,
@@ -128,10 +138,22 @@ function init() {
     makeTemplate("Switch", "mediumorchid",
                  [makePort("1", true), makePort("3", true)],
                  [makePort("2", true), makePort("4", true)]);
-
+    makeTemplate("LED", "blue",
+                 [makePort("+", true)],
+                 [makePort("-", false)], 50, 30);
     makeTemplate("Line", "black",
                  [],
-                 [makePort("1", false)]);
+                 [makePort("1", false)], 30, 300);
+    
+    makeTemplate("USB", "mediumorchid",
+                 [makePort("1:GND", true),
+		  makePort("2:TXD", true),
+		  makePort("3:VDD324", true),
+		  makePort("4:RXD", true)],
+                 [makePort("8:VO_33", false),
+		  makePort("7:VDD_5", false),
+		  makePort("6:DM", false),
+		  makePort("5:DP", false)]);
 
     myDiagram.linkTemplate =
 	$(go.Link,
@@ -139,8 +161,7 @@ function init() {
               routing: go.Link.Orthogonal, corner: 5,
               relinkableFrom: true, relinkableTo: true
           },
-          $(go.Shape, { stroke: "gray", strokeWidth: 2 }),
-          $(go.Shape, { stroke: "gray", fill: "gray", toArrow: "Standard" })
+          $(go.Shape, { stroke: "gray", strokeWidth: 2 })
 	 );
 
     load();

@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width" />
    <script src="lib/go-debug.js"></script>
    <script src="js/main.js"></script>
-   <title>[Title]</title>
+   <title>Circuit of 01_blink</title>
 </head>
 <body onload="init()">
    <div id="myDiagram" style="background-color: whitesmoke; border: solid 1px black; width: 100%; height: 600px"></div>
@@ -15,17 +15,30 @@
   "linkFromPortIdProperty": "frompid",
   "linkToPortIdProperty": "topid",
   "nodeDataArray": [
-{"key":1, "type":"Chip", "name":"LPC1114"},
-{"key":2, "type":"Switch", "name":"reset"},
-     {"key":3, "type":"Switch", "name":"button"},
-     {"key": 4, "type": "Line", "name": "GND" },
-     {"key": 5, "type": "Line", "name": "VCC" }
-  ],
+     {"key":"lpc1114", "type":"Chip", "name":"LPC1114"},
+     {"key":"reset", "type":"Switch", "name":"reset"},
+     {"key":"isp", "type":"Switch", "name":"isp"},
+     {"key": "gnd", "type": "Line", "name": "GND" },
+     {"key": "vcc", "type": "Line", "name": "VCC" },
+     {"key": "led", "type": "LED", "name": "LED"},
+     {"key": "usb", "type": "USB", "name": "MPL230SA(USB module)" }
+     ],
      "linkDataArray": [
-     {"from": 1, "frompid": "23", "to": 2, "topid": "2"},
-     {"from": 2, "frompid": "1", "to": 4, "topid": "1"}
-     
-  ]}
+     {"from": "lpc1114", "frompid": "7:V_DDA", "to": "gnd"},
+     {"from": "usb", "frompid": "1:GND", "to": "gnd"},
+     {"from": "usb", "frompid": "8:VO_33", "to": "vcc"},
+     {"from": "usb", "frompid": "2:TXD", "to": "lpc1114", "topid": "15"},
+     {"from": "usb", "frompid": "4:RXD", "to": "lpc1114", "topid": "16"},
+     {"from": "lpc1114", "frompid": "28", "to": "led", "topid": "+"},
+     {"from": "led", "frompid": "-", "to": "gnd" },
+
+     {"from":"lpc1114", "frompid": "23", "to": "reset", "topid": "2"},
+     {"from": "reset", "frompid": "1", "to": "gnd", "topid": "1"},
+
+     {"from": "isp", "frompid": "2", "to": "lpc1114", "topid": "24"},
+     {"from": "isp", "frompid": "1", "to": "gnd", "topid": "1"}
+
+     ]}
    </textarea>
    <!-- {"from":1, "frompid":"OUT", "to":11, "topid":"L"}, -->
 </body></html>
