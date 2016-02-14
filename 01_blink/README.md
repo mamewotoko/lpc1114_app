@@ -37,6 +37,7 @@ TODO: ドライバ、FlashMagicなど、インストールするものを列挙�
 |LED2(Lチカ確認用)|LPC1114の28ピンとブレッドボードの-|
 ![回路](image/led1.jpg)
 
+![Fritzingで書いたブレッドボード上の配線図](image/lpc1114_led_breadboard.svg)
 [Graphvizで無理やり表現してみたもの](image/dot_circuit.png)
 
 手順: プログラムの書込み

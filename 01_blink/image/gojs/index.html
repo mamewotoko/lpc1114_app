@@ -10,7 +10,7 @@
 <body onload="init()">
    <div id="myDiagram" style="background-color: whitesmoke; border: solid 1px black; width: 100%; height: 600px"></div>
 
-   <textarea id="mySavedModel" style="width:100%;height:300px">{ "class": "go.GraphLinksModel",
+   <textarea id="mySavedModel" style="width:50%;height:400px">{ "class": "go.GraphLinksModel",
   "nodeCategoryProperty": "type",
   "linkFromPortIdProperty": "frompid",
   "linkToPortIdProperty": "topid",
@@ -33,12 +33,13 @@
      {"from": "led", "frompid": "-", "to": "gnd" },
 
      {"from":"lpc1114", "frompid": "23", "to": "reset", "topid": "2"},
-     {"from": "reset", "frompid": "1", "to": "gnd", "topid": "1"},
+     { "from": "gnd", "to": "reset", "topid": "1"},
 
      {"from": "isp", "frompid": "2", "to": "lpc1114", "topid": "24"},
-     {"from": "isp", "frompid": "1", "to": "gnd", "topid": "1"}
+     {"from": "gnd", "to": "isp", "topid": "1" }
 
      ]}
    </textarea>
    <!-- {"from":1, "frompid":"OUT", "to":11, "topid":"L"}, -->
+   <button onclick="save()">Save</button>
 </body></html>

@@ -12,12 +12,8 @@ TODO
 - サウンド(スピーカ)
 - 赤外線
 - USBキーボード
+- [Fritzing](http://fritzing.org/home/) を使って回路図を書く
 
-増山隆 < mamewotoko@gmail.com >
-
-
-
-
-
-
-
+----
+増山隆 < mamewotoko@gmail.com >  
+http://mamewo.ddo.jp/

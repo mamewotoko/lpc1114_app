@@ -4,7 +4,8 @@ function init() {
     myDiagram =
 	$(go.Diagram, "myDiagram",
           {
-              initialContentAlignment: go.Spot.Left,
+              //initialContentAlignment: go.Spot.Left,
+              initialContentAlignment: go.Spot.Top,
               initialAutoScale: go.Diagram.UniformToFill,
               layout: $(go.LayeredDigraphLayout,
 			{ direction: 0 }),
@@ -18,7 +19,7 @@ function init() {
 			 fill: "gray", stroke: null, strokeWidth: 0,
 			 desiredSize: new go.Size(8, 8),
 			 portId: name,  // declare this object to be a "port"
-			 toMaxLinks: 1,  // don't allow more than one link into a port
+			 //toMaxLinks: 1,  // don't allow more than one link into a port
 			 cursor: "pointer"  // show a different cursor to indicate potential link point
                      });
 
@@ -103,7 +104,7 @@ function init() {
 	myDiagram.nodeTemplateMap.add(typename, node);
     }
 
-    makeTemplate("Chip", "lightgray",
+    makeTemplate("Chip", "gray",
                  [makePort("1:PIO0_8", true),
 		  makePort("2:PIO0_9", true),
 		  makePort("3:SWCLK", true),
@@ -143,7 +144,8 @@ function init() {
                  [makePort("-", false)], 50, 30);
     makeTemplate("Line", "black",
                  [],
-                 [makePort("1", false)], 30, 300);
+		 [], 30, 300);
+                 //[makePort("1", false)], 30, 300);
     
     makeTemplate("USB", "mediumorchid",
                  [makePort("1:GND", true),
@@ -158,10 +160,12 @@ function init() {
     myDiagram.linkTemplate =
 	$(go.Link,
           {
-              routing: go.Link.Orthogonal, corner: 5,
-              relinkableFrom: true, relinkableTo: true
+              routing: go.Link.Orthogonal,
+	      corner: 5,
+              relinkableFrom: true,
+	      relinkableTo: true
           },
-          $(go.Shape, { stroke: "gray", strokeWidth: 2 })
+          $(go.Shape, { stroke: "green", strokeWidth: 2 })
 	 );
 
     load();
@@ -172,6 +176,7 @@ function save() {
     document.getElementById("mySavedModel").value = myDiagram.model.toJson();
     myDiagram.isModified = false;
 }
+
 function load() {
     myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
 }
