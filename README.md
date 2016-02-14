@@ -8,7 +8,8 @@ lpc1114_app
 
 [Fritzing](http://fritzing.org/home/)
 ---------
-FritzingのSketchファイルを追加しました。
+FritzingのSketch(.fz)ファイルを開くには[Fritzing](http://fritzing.org/home/)
+をインストールしてください。
 
 TODO
 ----
