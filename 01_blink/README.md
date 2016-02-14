@@ -22,6 +22,7 @@ TODO: ドライバ、FlashMagicなど、インストールするものを列挙�
 手順: 回路作成
 ------------
 1.ブレッドボード上で配線。以下、繋ぐピンの表。
+[Fritzingでのスケッチ](fritzing/lpc1114_01_blink/lpc1114_bell.fz)
 
 |ピン1|ピン2|
 |----|----|
@@ -37,7 +38,7 @@ TODO: ドライバ、FlashMagicなど、インストールするものを列挙�
 |LED2(Lチカ確認用)|LPC1114の28ピンとブレッドボードの-|
 ![回路](image/led1.jpg)
 
-<img src="image/lpc1114_led_breadboard.svg">
+![ブレッドボードでの配線図](image/lpc1114_led_breadboard.png)
 
 [Graphvizで無理やり表現してみたもの](image/dot_circuit.png)
 
