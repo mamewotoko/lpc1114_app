@@ -21,10 +21,12 @@ FritzingのSketch(.fz)ファイルを開くには[Fritzing](http://fritzing.org/
 
 TODO
 ----
-- 赤外線
-- シリアル通信
-- サウンド(スピーカ)
-- USBキーボード
+* 赤外線
+* シリアル通信
+* サウンド(スピーカ)
+* USBキーボード
+* Fritzing partsの書き換え
+  * https://learn.sparkfun.com/tutorials/make-your-own-fritzing-parts
 
 参考
 ----
