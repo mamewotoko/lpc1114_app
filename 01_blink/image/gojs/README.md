@@ -17,5 +17,5 @@ References
 * [GoJS](https://gojs.net/latest/samples/logicCircuit.html)
 
 ----
-Takashi Masuyama < mamewotoko@gmail.com >
+Takashi Masuyama < mamewotoko@gmail.com >  
 https://mamewo.ddo.jp/
